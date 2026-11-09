@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thiankun Studio – SketchUp Extensions</title>
+  <meta name="description" content="ดาวน์โหลด SketchUp Extensions จาก Thiankun Studio · Download SketchUp extensions by Thiankun Studio">
+  <link rel="icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #17325f; --navy-2: #22457f; --gold: #f2c45a;
+      --bg: #f4f6f9; --card: #ffffff; --text: #1f2933; --muted: #5f6b7a; --line: #dde2e8;
+      --green: #1a7f37;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 'IBM Plex Sans Thai', 'Segoe UI', Tahoma, sans-serif; }
+    a { color: var(--navy-2); }
+    img { -webkit-user-drag: none; user-select: none; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+    header { background: var(--navy); color: #fff; }
+    header .wrap { display: flex; align-items: center; gap: 14px; padding-top: 18px; padding-bottom: 18px; }
+    header .brand { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+    header .logo { width: 52px; height: 52px; border-radius: 10px; background: #fff; padding: 4px; object-fit: contain; flex: none; }
+    header h1 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.25; }
+    header .sub { font-size: 13px; color: #c9d6ea; }
+    .lang { display: flex; border: 1px solid rgba(255,255,255,.35); border-radius: 8px; overflow: hidden; flex: none; }
+    .lang button { background: none; border: none; color: #fff; font: inherit; font-size: 13px; padding: 5px 10px; cursor: pointer; }
+    .lang button.on { background: var(--gold); color: var(--navy); font-weight: 600; }
+
+    .hero { padding: 28px 0 8px; }
+    .hero h2 { margin: 0 0 6px; font-size: 24px; line-height: 1.35; color: var(--navy); }
+    .hero p { margin: 0; color: var(--muted); }
+    .trial { display: inline-block; margin-top: 12px; background: #fff6dc; color: #7a5300; border: 1px solid #f1d58c; border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 500; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; padding: 20px 0 8px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .card .top { display: flex; gap: 12px; align-items: center; }
+    .card .icon { width: 48px; height: 48px; border-radius: 12px; background: #eaf1fb; display: grid; place-items: center; flex: none; }
+    .card .icon svg { width: 30px; height: 30px; }
+    .card h3 { margin: 0; font-size: 19px; color: var(--navy); }
+    .card .ver { font-size: 13px; color: var(--muted); min-height: 20px; }
+    .card p { margin: 0; color: var(--text); font-size: 15px; flex: 1; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; background: var(--green); color: #fff; font-weight: 600; border-radius: 10px; padding: 11px 14px; }
+    .btn:hover { filter: brightness(1.08); }
+    .btn svg { width: 18px; height: 18px; }
+    .btn.off { background: #e6e9ee; color: var(--muted); pointer-events: none; }
+    .card .more { font-size: 14px; text-align: center; }
+    .soon { font-size: 12px; font-weight: 600; color: #7a5300; background: #fff6dc; border-radius: 6px; padding: 1px 8px; margin-left: 6px; vertical-align: middle; }
+
+    section.box { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
+    section.box h2 { margin: 0 0 10px; font-size: 18px; color: var(--navy); }
+    section.box ol { margin: 0; padding-left: 22px; }
+    section.box li { margin: 4px 0; }
+    .note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+    kbd { font: 13px Consolas, monospace; background: #f1f3f6; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; }
+
+    .contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+    .contact a { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+    .contact a:hover { border-color: var(--navy-2); }
+    .contact .dot { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 13px; flex: none; }
+    .contact small { display: block; color: var(--muted); font-size: 13px; line-height: 1.3; }
+    .contact span { line-height: 1.3; word-break: break-word; }
+
+    footer { color: var(--muted); font-size: 13px; text-align: center; padding: 18px 0 30px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="" draggable="false">
+      <div>
+        <h1>Thiankun Studio</h1>
+        <div class="sub" data-t="tagline"></div>
+      </div>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="th">ไทย</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h2 data-t="hero"></h2>
+    <p data-t="hero_sub"></p>
+    <span class="trial" data-t="trial"></span>
+  </div>
+
+  <div class="grid" id="products"></div>
+
+  <section class="box">
+    <h2 data-t="install_title"></h2>
+    <ol>
+      <li data-t="install_1"></li>
+      <li data-t="install_2"></li>
+      <li data-t="install_3"></li>
+      <li data-t="install_4"></li>
+    </ol>
+    <p class="note" data-t="install_note"></p>
+  </section>
+
+  <section class="box">
+    <h2 data-t="contact_title"></h2>
+    <p class="note" style="margin:0 0 12px" data-t="contact_sub"></p>
+    <div class="contact">
+      <a href="https://line.me/R/ti/p/@tkstudio" target="_blank" rel="noopener">
+        <span class="dot" style="background:#06c755;font-size:10px">LINE</span>
+        <span>@tkstudio<small data-t="line_note"></small></span>
+      </a>
+      <a href="https://www.facebook.com/Thiankunstudio/" target="_blank" rel="noopener">
+        <span class="dot" style="background:#1877f2">f</span>
+        <span>Thiankun Studio<small>Facebook</small></span>
+      </a>
+      <a href="mailto:thiankun.studio@gmail.com">
+        <span class="dot" style="background:var(--navy)">@</span>
+        <span>thiankun.studio@gmail.com<small data-t="email_note"></small></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Thiankun Studio</footer>
+
+<script>
+  // Each extension: its own public releases repo; the file there always has
+  // the same name, so ".../releases/latest/download/<file>" is the newest.
+  // A new extension = one more entry here (soon: true until it is out).
+  const ICONS = {
+    wall: '<svg viewBox="0 0 24 24" fill="none" stroke="#2B5797" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16v18H4z" fill="#CFE0F5"/><path d="M4 5h16M4 19h16"/><path d="M9 5v14M15 5v14" stroke-dasharray="2 1.5"/></svg>',
+    conduit: '<svg viewBox="0 0 24 24" fill="none" stroke="#B5651D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z" stroke="#9AA5B1" fill="#EEF2F6"/><path d="M8 21v-9a4 4 0 0 1 4-4h9" stroke="#E0A800" stroke-width="3"/><rect x="5.5" y="14" width="5" height="6" rx="0.8" fill="#FFFFFF" stroke="#2B5797"/></svg>'
+  };
+  ICONS.rebar = '<svg viewBox="0 0 24 24" fill="none" stroke="#5F6B7A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v16H3z" fill="#E4E7EB"/><path d="M6 7h12v10H6z" stroke="#B5651D"/><circle cx="7.5" cy="8.5" r="1" fill="#B5651D" stroke="none"/><circle cx="16.5" cy="8.5" r="1" fill="#B5651D" stroke="none"/><circle cx="7.5" cy="15.5" r="1" fill="#B5651D" stroke="none"/><circle cx="16.5" cy="15.5" r="1" fill="#B5651D" stroke="none"/></svg>';
+  ICONS.roof = '<svg viewBox="0 0 24 24" fill="none" stroke="#2B5797" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13 12 4l10 9" stroke="#B5651D" stroke-width="2"/><path d="M5 11v9h14v-9" fill="#CFE0F5"/><path d="M7 13 12 8.5 17 13M12 8.5V20"/></svg>';
+  ICONS.masonry = '<svg viewBox="0 0 24 24" fill="none" stroke="#9A4A2A" stroke-width="1.4" stroke-linejoin="round"><path d="M3 4h18v16H3z" fill="#F3D9C8"/><path d="M3 8h18M3 12h18M3 16h18M9 4v4M15 4v4M6 8v4M12 8v4M18 8v4M9 12v4M15 12v4M6 16v4M12 16v4M18 16v4"/></svg>';
+  const PRODUCTS = [
+    { name: 'TK BoardWise', icon: 'wall', repo: 'ThiankunStudio/TK_BoardWise-releases', file: 'tk_boardwise.rbz',
+      th: 'ออกแบบฝ้าและผนังเบาใน SketchUp ครบทั้งโครงคร่าว แผ่นบอร์ด ชุดแขวน สกรูและพุก ช่องเปิด ค้ำยัน พร้อมสรุปวัสดุ (BOQ)',
+      en: 'Design ceilings and drywalls in SketchUp: framing, boards, hangers, screws and fixings, openings and braces, with a bill of quantities (BOQ).' },
+    { name: 'TK Veinix', icon: 'conduit', soon: true,
+      th: 'งานระบบที่เดินในผนังและฝ้า เริ่มจากท่อร้อยสายไฟ ใช้ได้เดี่ยวๆ และทำงานร่วมกับ TK BoardWise ได้',
+      en: 'Building services run inside walls and ceilings, starting with electrical conduits. Works on its own and together with TK BoardWise.' },
+    { name: 'TK Rebarix', icon: 'rebar', soon: true,
+      th: 'โครงสร้างคอนกรีตเสริมเหล็ก เสา คาน พื้น ฐานราก พร้อมเหล็กเสริมและสรุปปริมาณคอนกรีต เหล็ก และแบบหล่อ',
+      en: 'Reinforced concrete structures - columns, beams, slabs and footings with their rebar, and quantities of concrete, steel and formwork.' },
+    { name: 'TK RoofCraft', icon: 'roof', soon: true,
+      th: 'โครงหลังคา จันทัน แป อะเส ดั้ง และวัสดุมุงหลังคา พร้อมสรุปวัสดุ',
+      en: 'Roof framing - rafters, purlins, ties and ridges - with roofing and a bill of quantities.' },
+    { name: 'TK MasonWorks', icon: 'masonry', soon: true,
+      th: 'ผนังก่ออิฐฉาบปูน วางแนวก่ออิฐ เสาเอ็น คานทับหลัง งานฉาบ พร้อมสรุปปริมาณอิฐ ปูนก่อ และปูนฉาบ',
+      en: 'Masonry and plastered walls - brick courses, tie columns and lintels, plastering - with quantities of bricks, mortar and plaster.' }
+  ];
+
+  const TEXT = {
+    th: {
+      tagline: 'SketchUp Extensions สำหรับงานออกแบบและงานก่อสร้าง',
+      hero: 'ดาวน์โหลด Extension', hero_sub: 'เลือกดาวน์โหลดได้เลย ทุกลิงก์เป็นเวอร์ชันล่าสุดเสมอ',
+      trial: 'ทดลองใช้ฟรี 3 วัน (สำหรับผู้ใช้ใหม่)',
+      download: 'ดาวน์โหลด', soon: 'เร็วๆ นี้', coming: 'กำลังพัฒนา', whatsnew: 'มีอะไรใหม่',
+      version: 'เวอร์ชัน', for_su: 'สำหรับ SketchUp 2021 – 2026',
+      install_title: 'วิธีติดตั้ง',
+      install_1: 'ดาวน์โหลดไฟล์ .rbz จากการ์ดด้านบน',
+      install_2: 'เปิด SketchUp ไปที่เมนู <b>Extensions › Extension Manager</b>',
+      install_3: 'กด <b>Install Extension</b> แล้วเลือกไฟล์ .rbz ที่ดาวน์โหลดมา',
+      install_4: 'ปิดแล้วเปิด SketchUp ใหม่ จะเห็น toolbar ของ Extension',
+      install_note: 'มีเวอร์ชันใหม่เมื่อไหร่ โปรแกรมจะแจ้งเตือนเอง และกด "อัปเดตเลย" ในโปรแกรมได้ ไม่ต้องกลับมาดาวน์โหลดที่นี่',
+      contact_title: 'ซื้อ License / ติดต่อเรา',
+      contact_sub: 'สนใจซื้อ License มีปัญหาการใช้งาน หรือมีข้อเสนอแนะ ทักมาได้เลย',
+      line_note: 'LINE Official Account', email_note: 'อีเมล'
+    },
+    en: {
+      tagline: 'SketchUp extensions for design and construction',
+      hero: 'Download extensions', hero_sub: 'Pick one and download - every link is always the newest version.',
+      trial: 'Free 3-day trial (new users)',
+      download: 'Download', soon: 'Coming soon', coming: 'In development', whatsnew: "What's new",
+      version: 'Version', for_su: 'For SketchUp 2021 – 2026',
+      install_title: 'How to install',
+      install_1: 'Download the .rbz file from a card above',
+      install_2: 'In SketchUp, open <b>Extensions › Extension Manager</b>',
+      install_3: 'Click <b>Install Extension</b> and pick the downloaded .rbz file',
+      install_4: 'Restart SketchUp - the extension\'s toolbar shows up',
+      install_note: 'When a new version is out, the program tells you itself and "Update now" installs it - no need to come back here.',
+      contact_title: 'Buy a license / Contact us',
+      contact_sub: 'Want a license, need help, or have an idea? Get in touch.',
+      line_note: 'LINE Official Account', email_note: 'E-mail'
+    }
+  };
+
+  const DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>';
+  const latest = {}; // repo -> { version, date }
+  let lang = 'th';
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  }
+
+  function verLine(p) {
+    const t = TEXT[lang];
+    if (p.soon) return t.coming;
+    const info = latest[p.repo];
+    if (!info) return t.for_su;
+    const date = info.date ? new Date(info.date).toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+    return t.version + ' ' + esc(info.version) + (date ? ' · ' + date : '');
+  }
+
+  function render() {
+    const t = TEXT[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-t]').forEach((el) => { el.innerHTML = t[el.dataset.t] || ''; });
+    document.querySelectorAll('.lang button').forEach((b) => b.classList.toggle('on', b.dataset.lang === lang));
+    document.getElementById('products').innerHTML = PRODUCTS.map((p) => {
+      const button = p.soon
+        ? '<span class="btn off">' + t.soon + '</span>'
+        : '<a class="btn" href="https://github.com/' + p.repo + '/releases/latest/download/' + p.file + '">' + DL_ICON + t.download + '</a>';
+      const more = p.soon ? '' : '<a class="more" href="https://github.com/' + p.repo + '/releases/latest" target="_blank" rel="noopener">' + t.whatsnew + '</a>';
+      return '<article class="card"><div class="top"><div class="icon">' + ICONS[p.icon] + '</div><div>' +
+        '<h3>' + esc(p.name) + '</h3>' +
+        '<div class="ver">' + verLine(p) + '</div></div></div>' +
+        '<p>' + esc(p[lang]) + '</p>' + button + more + '</article>';
+    }).join('');
+  }
+
+  // The newest version and its date from GitHub (shown when it answers).
+  function fetchLatest() {
+    PRODUCTS.filter((p) => !p.soon).forEach((p) => {
+      fetch('https://api.github.com/repos/' + p.repo + '/releases/latest')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((j) => {
+          if (!j || !j.tag_name) return;
+          latest[p.repo] = { version: String(j.tag_name).replace(/^v/i, ''), date: j.published_at };
+          render();
+        })
+        .catch(() => {});
+    });
+  }
+
+  function setLang(l) {
+    lang = l === 'en' ? 'en' : 'th';
+    try { localStorage.setItem('tk_lang', lang); } catch (e) { /* private mode */ }
+    render();
+  }
+
+  let saved = null;
+  try { saved = localStorage.getItem('tk_lang'); } catch (e) { /* private mode */ }
+  lang = saved || ((navigator.language || 'th').toLowerCase().startsWith('th') ? 'th' : 'en');
+  document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  document.getElementById('year').textContent = new Date().getFullYear();
+  render();
+  fetchLatest();
+</script>
+</body>
+</html>
